@@ -1,0 +1,130 @@
+{% extends 'medicare/base.html' %}
+
+{% block title %}Home - Sanjivini Medicare{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-white text-center py-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Welcome to Sanjivini Medicare</h1>
+                <p class="lead mb-4">Providing world-class healthcare services with compassion, innovation, and excellence. Your health is our priority.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'medicare:services' %}" class="btn btn-primary btn-lg">Our Services</a>
+                    <a href="{% url 'medicare:contact' %}" class="btn btn-outline-light btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold">Why Choose Sanjivini Medicare?</h2>
+                <p class="lead text-muted">We are committed to providing the highest quality healthcare services</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-user-md fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Expert Doctors</h5>
+                        <p class="card-text">Our team consists of highly qualified and experienced medical professionals dedicated to your care.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-hospital fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Modern Facilities</h5>
+                        <p class="card-text">State-of-the-art medical equipment and facilities to ensure accurate diagnosis and treatment.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-heart fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Patient Care</h5>
+                        <p class="card-text">Personalized care and attention to every patient with compassion and understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold">Our Services</h2>
+                <p class="lead text-muted">Comprehensive healthcare solutions for you and your family</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card text-center p-4">
+                    <i class="fas fa-stethoscope fa-2x text-primary mb-3"></i>
+                    <h5>General Medicine</h5>
+                    <p class="text-muted">Comprehensive medical care for all ages</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card text-center p-4">
+                    <i class="fas fa-baby fa-2x text-primary mb-3"></i>
+                    <h5>Pediatrics</h5>
+                    <p class="text-muted">Specialized care for children and infants</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card text-center p-4">
+                    <i class="fas fa-heartbeat fa-2x text-primary mb-3"></i>
+                    <h5>Cardiology</h5>
+                    <p class="text-muted">Expert heart care and treatment</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card text-center p-4">
+                    <i class="fas fa-brain fa-2x text-primary mb-3"></i>
+                    <h5>Neurology</h5>
+                    <p class="text-muted">Advanced neurological care</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{% url 'medicare:services' %}" class="btn btn-primary btn-lg">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-6 fw-bold mb-3">Ready to Book Your Appointment?</h2>
+        <p class="lead mb-4">Don't wait! Schedule your consultation with our expert doctors today.</p>
+        <a href="{% url 'medicare:services' %}" class="btn btn-light btn-lg">Book Now</a>
+    </div>
+</section>
+{% endblock %}

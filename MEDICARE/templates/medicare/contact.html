@@ -1,0 +1,237 @@
+{% extends 'medicare/base.html' %}
+
+{% block title %}Contact Us - Sanjivini Medicare{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+                <p class="lead">Get in touch with us for any questions or to schedule an appointment</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information and Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-5 mb-5">
+                <h2 class="display-6 fw-bold mb-4">Get In Touch</h2>
+                <p class="lead text-muted mb-4">We're here to help and answer any questions you might have. We look forward to hearing from you.</p>
+                
+                <div class="contact-info">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="contact-icon me-3">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Address</h5>
+                            <p class="mb-0 text-muted">123  Avenue, GAUR CITY<br> NOIDA ,GREATER NOIDA, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="contact-icon me-3">
+                            <i class="fas fa-phone fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <p class="mb-0 text-muted">+91-900520****<br></p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="contact-icon me-3">
+                            <i class="fas fa-envelope fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p class="mb-0 text-muted">sanjivinimedicare@gmail.com<br>appointmentssanjivinimedicare@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="contact-icon me-3">
+                            <i class="fas fa-clock fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Working Hours</h5>
+                            <p class="mb-0 text-muted">Monday - Friday: 8:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 6:00 PM<br>Sunday: 10:00 AM - 4:00 PM<br>Emergency: 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0"><i class="fas fa-envelope me-2"></i>Send us a Message</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="">Choose a subject</option>
+                                    <option value="appointment">Appointment Booking</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="emergency">Emergency</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Please describe your inquiry or concern..." required></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold">Find Us</h2>
+                <p class="lead text-muted">Visit our facility located in the heart of New Delhi</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-0">
+                        <div id="map" style="height: 500px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-4 text-center">
+                <div class="p-3">
+                    <i class="fas fa-car fa-2x text-primary mb-3"></i>
+                    <h5>By Car</h5>
+                    <p class="text-muted">Located near Connaught Place metro station. Parking available on-site.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 text-center">
+                <div class="p-3">
+                    <i class="fas fa-subway fa-2x text-primary mb-3"></i>
+                    <h5>By Metro</h5>
+                    <p class="text-muted">Nearest metro station: Connaught Place (Yellow Line). 5-minute walk from exit.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 text-center">
+                <div class="p-3">
+                    <i class="fas fa-bus fa-2x text-primary mb-3"></i>
+                    <h5>By Bus</h5>
+                    <p class="text-muted">Multiple bus routes serve Connaught Place. Bus stop is 2 minutes away.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Contact -->
+<section class="py-5 bg-danger text-white">
+    <div class="container text-center">
+        <h2 class="display-6 fw-bold mb-3">Emergency Contact</h2>
+        <p class="lead mb-4">For medical emergencies, call our 24/7 emergency hotline</p>
+        <div class="d-flex justify-content-center align-items-center">
+            <i class="fas fa-phone-alt fa-3x me-3"></i>
+            <div class="text-start">
+                <h3 class="mb-1">+91-900520****</h3>
+                <p class="mb-0">Available 24/7 for emergency medical assistance</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function initMap() {
+    // Sanjivini Medicare location in New Delhi (sample coordinates)
+    const location = { lat: 28.6139, lng: 77.2090 };
+    
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: location,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+        zoomControl: true,
+    });
+    
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Sanjivini Medicare",
+        animation: google.maps.Animation.DROP
+    });
+    
+    const infoWindow = new google.maps.InfoWindow({
+        content: `
+            <div style="text-align: center; padding: 10px;">
+                <h5 style="margin: 0 0 10px 0; color: #0d6efd;">Sanjivini Medicare</h5>
+                <p style="margin: 0; font-size: 14px;">123 Healthcare Avenue, Connaught Place<br>New Delhi, Delhi 110001</p>
+                <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">Click for directions</p>
+            </div>
+        `
+    });
+    
+    marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+    });
+    
+    // Add click listener to map to close info window
+    map.addListener("click", () => {
+        infoWindow.close();
+    });
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap"></script>
+{% endblock %}

@@ -1,0 +1,222 @@
+{% extends 'medicare/base.html' %}
+
+{% block title %}Dashboard - Sanjivini Medicare{% endblock %}
+
+{% block content %}
+<!-- Dashboard Hero Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Welcome, {{ user.first_name|default:user.username }}!</h1>
+                <p class="lead">Manage your appointments and healthcare information</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Content -->
+<section class="py-5">
+    <div class="container">
+        <!-- Quick Actions -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold mb-4">Quick Actions</h2>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-calendar-plus fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Book Appointment</h5>
+                        <p class="card-text">Schedule a new appointment with our doctors</p>
+                        <a href="{% url 'medicare:services' %}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-phone fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Contact Us</h5>
+                        <p class="card-text">Get in touch for any questions or concerns</p>
+                        <a href="{% url 'medicare:contact' %}" class="btn btn-success">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-user-md fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Our Services</h5>
+                        <p class="card-text">Explore the healthcare services we offer</p>
+                        <a href="{% url 'medicare:services' %}" class="btn btn-info">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Information -->
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-light">
+                        <h4 class="mb-0"><i class="fas fa-user me-2"></i>Profile Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <label class="fw-bold">Username:</label>
+                                <p class="text-muted">{{ user.username }}</p>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="fw-bold">Full Name:</label>
+                                <p class="text-muted">{{ user.get_full_name|default:"Not provided" }}</p>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="fw-bold">Email:</label>
+                                <p class="text-muted">{{ user.email }}</p>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="fw-bold">Date Joined:</label>
+                                <p class="text-muted">{{ user.date_joined|date:"M d, Y" }}</p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-primary">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-light">
+                        <h4 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Health Summary</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-6 mb-3">
+                                <div class="bg-primary text-white rounded p-3">
+                                    <h3 class="mb-1">{{ appointments.count }}</h3>
+                                    <p class="mb-0">Total Appointments</p>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="bg-success text-white rounded p-3">
+                                    <h3 class="mb-1">{{ appointments.count }}</h3>
+                                    <p class="mb-0">Completed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-outline-success">View Health Records</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Appointments -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Your Appointments</h4>
+                        <a href="{% url 'medicare:services' %}" class="btn btn-primary btn-sm">Book New</a>
+                    </div>
+                    <div class="card-body">
+                        {% if appointments %}
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Service</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for appointment in appointments %}
+                                        <tr>
+                                            <td>{{ appointment.date|date:"M d, Y" }}</td>
+                                            <td>9:00 AM</td>
+                                            <td>{{ appointment.message|truncatechars:30|default:"General Consultation" }}</td>
+                                            <td>
+                                                <span class="badge bg-warning">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">Reschedule</button>
+                                                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="text-center py-4">
+                                <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">No appointments scheduled</h5>
+                                <p class="text-muted">You haven't booked any appointments yet.</p>
+                                <a href="{% url 'medicare:services' %}" class="btn btn-primary">Book Your First Appointment</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Health Tips -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-light">
+                        <h4 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Health Tips</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex">
+                                    <i class="fas fa-heart text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <h6>Stay Active</h6>
+                                        <p class="text-muted small">Regular exercise helps maintain heart health and overall wellness.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex">
+                                    <i class="fas fa-apple-alt text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6>Eat Healthy</h6>
+                                        <p class="text-muted small">A balanced diet rich in fruits and vegetables supports your immune system.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex">
+                                    <i class="fas fa-bed text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6>Get Enough Sleep</h6>
+                                        <p class="text-muted small">7-9 hours of quality sleep is essential for good health and recovery.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

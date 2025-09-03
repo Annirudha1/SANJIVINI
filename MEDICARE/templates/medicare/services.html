@@ -1,0 +1,217 @@
+{% extends 'medicare/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Services - Sanjivini Medicare{% endblock %}
+
+{% block content %}
+<!-- Services Hero Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Our Services</h1>
+                <p class="lead">Comprehensive healthcare solutions for you and your family</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services List -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-stethoscope fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">General Medicine</h5>
+                        <p class="card-text">Comprehensive medical care for adults, including preventive care, diagnosis, and treatment of various medical conditions.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Health checkups</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Chronic disease management</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Preventive care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-baby fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Pediatrics</h5>
+                        <p class="card-text">Specialized medical care for infants, children, and adolescents, ensuring healthy growth and development.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Well-child visits</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Vaccinations</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Growth monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-heartbeat fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Cardiology</h5>
+                        <p class="card-text">Expert diagnosis and treatment of heart and cardiovascular diseases using advanced technology.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>ECG and stress tests</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Echocardiography</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Cardiac rehabilitation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-brain fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Neurology</h5>
+                        <p class="card-text">Specialized care for disorders of the nervous system, including brain, spinal cord, and nerves.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Neurological examinations</li>
+                            <li><i class="fas fa-check text-success me-2"></i>EEG and EMG tests</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Treatment for migraines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-eye fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Ophthalmology</h5>
+                        <p class="card-text">Comprehensive eye care services including vision correction, eye disease treatment, and surgery.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Eye examinations</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Glaucoma screening</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Vision correction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="fas fa-tooth fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Dental Care</h5>
+                        <p class="card-text">Complete dental services including cleanings, fillings, extractions, and cosmetic procedures.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Dental cleanings</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Cavity fillings</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Root canal therapy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Appointment Booking Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="mb-0"><i class="fas fa-calendar-check me-2"></i>Book Your Appointment</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form.name|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.email|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form.phone|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.date|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                {{ form.message|as_crispy_field }}
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Book Appointment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Services -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold">Additional Services</h2>
+                <p class="lead text-muted">We also offer specialized diagnostic and treatment services</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-4">
+                    <i class="fas fa-flask fa-2x text-primary mb-3"></i>
+                    <h5>Laboratory Services</h5>
+                    <p class="text-muted">Comprehensive blood tests and diagnostic procedures</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-4">
+                    <i class="fas fa-x-ray fa-2x text-primary mb-3"></i>
+                    <h5>Radiology</h5>
+                    <p class="text-muted">X-rays, CT scans, and MRI imaging services</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-4">
+                    <i class="fas fa-pills fa-2x text-primary mb-3"></i>
+                    <h5>Pharmacy</h5>
+                    <p class="text-muted">Full-service pharmacy with prescription medications</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-4">
+                    <i class="fas fa-ambulance fa-2x text-primary mb-3"></i>
+                    <h5>Emergency Care</h5>
+                    <p class="text-muted">24/7 emergency medical services</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

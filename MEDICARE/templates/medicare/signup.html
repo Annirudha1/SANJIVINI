@@ -1,0 +1,78 @@
+{% extends 'medicare/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Sign Up - Sanjivini Medicare{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="mb-0"><i class="fas fa-user-plus me-2"></i>Create Account</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form.first_name|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.last_name|as_crispy_field }}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.username|as_crispy_field }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.email|as_crispy_field }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.password1|as_crispy_field }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.password2|as_crispy_field }}
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-user-plus me-2"></i>Create Account
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Sign In</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefits of Creating Account -->
+                <div class="card border-0 shadow mt-4">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-center mb-3">
+                            <i class="fas fa-star text-warning me-2"></i>Benefits of Creating an Account
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Book appointments online</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>View your medical history</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Receive appointment reminders</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Access to patient portal</li>
+                            <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>Secure communication with doctors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
